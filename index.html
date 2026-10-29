@@ -697,7 +697,7 @@
                 <p>think before sharing personal information, photos, or your location online! (˶&gt;⩊&lt;˶)</p>
             </div>
         </div>
-        
+
         <div class="card-container" id="dynamicLessons"></div>
         <div class="module-detail-box" id="moduleDetailBox" hidden>
             <button type="button" class="module-close" id="closeModule" aria-label="Close module">×</button>
@@ -882,7 +882,9 @@
             quizFinished = true; const percent = Math.round(score / quizData.length * 100);
             const h = document.createElement("h3"); h.textContent = "Your result: " + score + "/" + quizData.length;
             const p = document.createElement("p"); p.textContent = "Score: " + percent + "%";
-            const msg = document.createElement("p"); msg.textContent = score === 5 ? "Perfect score! Amazing job! ♡" : score >= 3 ? "Great job! Keep practicing your online safety habits. ♡" : "Good effort! Review the tips and try again. ♡";
+            const msg = document.createElement("p"); msg.textContent = score === 5 ? "wow perfect score ! you're such a good girl ♡" 
+            : score >= 3 ? "great job ! keep practicing your online safety habits & u will receive headpats ♡" 
+            : "good effort ! review the tips and try again if u want to be a good kitty ♡";
             resultBox.replaceChildren(h, p, msg); resultBox.classList.add("visible"); submitButton.hidden = true; retakeButton.hidden = false;
         });
         retakeButton.addEventListener("click", loadQuiz);
