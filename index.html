@@ -1,205 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>CyberSafe ♡</title>
-
-    <!-- Google Font: Balsamiq Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="luckyclover.ico">
     <style>
-        /* Basic website style */
         * {
-            box-sizing: border-box;
+            box-sizing: border-box
         }
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 20px;
+            scroll-padding-top: 100px
         }
 
         body {
             margin: 0;
             font-family: "Balsamiq Sans", sans-serif;
-            background-color: #fffafd;
-            color: #604354;
+            background: #fffafd;
+            color: #604354
         }
 
-        h1, h2, h3, p {
-            overflow-wrap: break-word;
+        h1,
+        h2,
+        h3,
+        p {
+            overflow-wrap: break-word
         }
 
-        /* Navigation bar */
         header {
-            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
             padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
-            border-bottom: 2px dashed #f5cadd;
+            border-bottom: 2px dashed #f5cadd
         }
 
         .logo {
             font-size: 23px;
             font-weight: 700;
             color: #d96f9e;
-            white-space: nowrap;
+            white-space: nowrap
         }
 
         nav {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px 20px;
+            gap: 10px 20px
         }
 
         nav a {
-            text-decoration: none;
             color: #79586a;
-            font-size: 14px;
-            transition: color 0.2s;
+            text-decoration: none;
+            font-size: 14px
         }
 
         nav a:hover {
-            color: #e879ab;
+            color: #e879ab
         }
 
-        /* Home section */
         .hero {
-            background-color: #fff0f6;
+            background: #fff0f6;
             text-align: center;
-            padding: 100px 20px;
+            padding: 100px 20px
         }
 
         .welcome {
             color: #d96f9e;
             font-size: 12px;
             letter-spacing: 2px;
-            font-weight: 700;
+            font-weight: 700
         }
 
         h1 {
             font-size: 55px;
             line-height: 1.2;
             margin: 20px 0;
-            color: #604354;
+            color: #604354
         }
 
         h1 span {
-            color: #e879ab;
+            color: #e879ab
         }
 
-        .description {
+        .description,
+        .learn-description,
+        .safety-description,
+        .quiz-description,
+        .admin-description {
             max-width: 480px;
             margin: 0 auto 30px;
             color: #896f7e;
             line-height: 1.8;
-            font-size: 15px;
+            font-size: 15px
         }
 
-        /* Start button */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
         .start-button {
             display: inline-block;
-            background-color: #e879ab;
+            background: #e879ab;
             border: 2px dashed #d96298;
             color: white;
             text-decoration: none;
             padding: 14px 25px;
             border-radius: 12px;
             font-size: 14px;
-            font-weight: 700;
-            transition: background-color 0.2s, transform 0.2s;
+            font-weight: 700
         }
 
-        .start-button:hover {
-            background-color: #d96298;
-            transform: translateY(-2px);
+        .quiz-start-button {
+            background: white;
+            color: #d96298
         }
 
-        /* Learning section */
-        .learn {
+        .learn,
+        .safety,
+        .quiz,
+        .admin-section {
             padding: 70px 8%;
-            text-align: center;
-            background-color: #fffafd;
+            text-align: center
+        }
+
+        .learn {
+            background: #fffafd
+        }
+
+        .safety,
+        .admin-section {
+            background: #fff0f6
+        }
+
+        .quiz {
+            padding-left: 20px;
+            padding-right: 20px
         }
 
         .learn h2,
         .safety h2,
-        .quiz h2 {
+        .quiz h2,
+        .admin-section h2 {
             font-size: 32px;
             color: #604354;
-            margin: 15px 0;
+            margin: 15px 0
         }
 
-        .learn-description,
-        .safety-description,
-        .quiz-description {
-            color: #896f7e;
-            font-size: 15px;
-            line-height: 1.7;
-            max-width: 450px;
-            margin: 0 auto 35px;
-        }
-
-        /* Learning cards */
         .card-container {
             display: flex;
             justify-content: center;
             align-items: stretch;
             gap: 20px;
-            flex-wrap: wrap;
+            flex-wrap: wrap
         }
 
         .learn-card {
-            background-color: white;
+            background: white;
             border: 2px solid #f5d6e4;
             border-radius: 18px;
             padding: 25px 20px;
             flex: 1 1 220px;
             max-width: 280px;
+            min-width: 0;
             box-shadow: 0 4px 0 #fce8f1;
-            transition: transform 0.2s;
+            transition: transform .2s;
+            text-align: center
         }
 
         .learn-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px)
         }
 
         .card-icon {
-            font-size: 35px;
-            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 65px;
+            margin: 0 auto 10px;
+            text-align: center
+        }
+
+        .card-icon img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            object-fit: contain
         }
 
         .learn-card h3 {
             color: #d96f9e;
-            font-size: 18px;
+            font-size: 18px
         }
 
         .learn-card p {
             color: #896f7e;
             font-size: 14px;
-            line-height: 1.7;
+            line-height: 1.7
         }
 
-        /* Safety Tips section */
-        .safety {
-            padding: 70px 8%;
-            text-align: center;
-            background-color: #fff0f6;
+        .module-view-link {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: #d96f9e;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            cursor: pointer
         }
 
-        /* Safety tip cards */
+        .module-view-link:hover {
+            color: #d96298
+        }
+
+        .module-detail-box {
+            position: relative;
+            max-width: 900px;
+            margin: 35px auto 0;
+            padding: 35px;
+            text-align: left;
+            background: white;
+            border: 2px dashed #f0c6da;
+            border-radius: 20px;
+            box-shadow: 0 5px 0 #fce8f1
+        }
+
+        .module-detail-box[hidden],
+        [hidden] {
+            display: none !important
+        }
+
+        .module-detail-box h3,
+        .module-detail-box h4 {
+            color: #d96f9e
+        }
+
+        .module-detail-box p,
+        .module-detail-box li {
+            color: #79586a;
+            line-height: 1.8
+        }
+
+        .module-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            border: 0;
+            background: #fff0f6;
+            color: #d96f9e;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            font-size: 23px;
+            cursor: pointer
+        }
+
         .tips-container {
             max-width: 650px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 15px
         }
 
         .tip {
@@ -207,16 +290,10 @@
             align-items: flex-start;
             gap: 15px;
             text-align: left;
-            background-color: white;
+            background: white;
             border: 2px solid #f5d6e4;
             border-radius: 15px;
-            padding: 18px 20px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .tip:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 0 #fce0ec;
+            padding: 18px 20px
         }
 
         .check {
@@ -226,1187 +303,722 @@
             flex-shrink: 0;
             width: 28px;
             height: 28px;
-            background-color: #fce0ec;
+            background: #fce0ec;
             color: #d96f9e;
             border-radius: 50%;
-            font-weight: 700;
+            font-weight: 700
         }
 
         .tip h3 {
             margin: 3px 0 7px;
             color: #d96f9e;
-            font-size: 17px;
+            font-size: 17px
         }
 
         .tip p {
             margin: 0;
             color: #896f7e;
             font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Quiz section placeholder */
-        .quiz {
-            padding: 70px 20px;
-            text-align: center;
-            background-color: #fffafd;
+            line-height: 1.6
         }
 
         .quiz-box {
             max-width: 500px;
             margin: 0 auto;
             padding: 30px 25px;
-            background-color: white;
+            background: white;
             border: 2px dashed #f5cadd;
-            border-radius: 18px;
+            border-radius: 18px
         }
 
         .quiz-icon {
             font-size: 40px;
-            margin-bottom: 10px;
+            margin-bottom: 10px
+        }
+
+        .quiz-icon img {
+            max-width: 100%;
+            height: auto
         }
 
         .quiz-box p {
             color: #896f7e;
             font-size: 15px;
-            line-height: 1.7;
+            line-height: 1.7
         }
 
-        /* Footer */
+        .quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: left
+        }
+
+        .quiz-question {
+            background: white;
+            border: 2px solid #f5d6e4;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 0 #fce8f1
+        }
+
+        .quiz-question h3 {
+            color: #604354;
+            font-size: 18px;
+            line-height: 1.5
+        }
+
+        .question-number {
+            color: #d96f9e;
+            font-size: 13px;
+            font-weight: bold
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #f5d6e4;
+            border-radius: 12px;
+            background: #fffafd;
+            cursor: pointer;
+            line-height: 1.5
+        }
+
+        .quiz-option input {
+            margin-top: 5px;
+            accent-color: #d96f9e;
+            flex-shrink: 0
+        }
+
+        .quiz-option.correct-answer {
+            background: #edfff2;
+            border-color: #85c99a
+        }
+
+        .quiz-option.wrong-answer {
+            background: #fff0f0;
+            border-color: #e8a0a0
+        }
+
+        .answer-feedback {
+            display: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            line-height: 1.6
+        }
+
+        .answer-feedback.visible {
+            display: block
+        }
+
+        .answer-feedback.correct {
+            color: #27683b;
+            background: #edfff2
+        }
+
+        .answer-feedback.incorrect {
+            color: #963f4a;
+            background: #fff0f0
+        }
+
+        .quiz-progress {
+            text-align: center;
+            color: #896f7e;
+            margin-bottom: 20px
+        }
+
+        .quiz-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 25px
+        }
+
+        .quiz-button,
+        .admin-button {
+            border: 2px dashed #d96298;
+            border-radius: 12px;
+            padding: 13px 22px;
+            background: #e879ab;
+            color: white;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer
+        }
+
+        .quiz-button:hover,
+        .admin-button:hover {
+            background: #d96298
+        }
+
+        .quiz-result {
+            display: none;
+            margin-top: 25px;
+            padding: 24px;
+            border: 2px dashed #e879ab;
+            border-radius: 18px;
+            background: #fff0f6;
+            text-align: center
+        }
+
+        .quiz-result.visible {
+            display: block
+        }
+
+        .quiz-result h3 {
+            color: #d96f9e
+        }
+
+        .quiz-result p {
+            line-height: 1.7
+        }
+
         footer {
             padding: 22px 15px;
             text-align: center;
-            background-color: white;
+            background: white;
             border-top: 2px dashed #f5cadd;
             color: #896f7e;
-            font-size: 13px;
+            font-size: 13px
         }
 
-        /* Small screen adjustments */
-        @media (max-width: 600px) {
+        .admin-section {
+            padding: 70px 20px
+        }
+
+        .admin-box {
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 28px;
+            text-align: left;
+            background: white;
+            border: 2px dashed #f5cadd;
+            border-radius: 18px;
+            box-shadow: 0 4px 0 #fce8f1
+        }
+
+        .admin-box h3 {
+            color: #d96f9e
+        }
+
+        .admin-box label {
+            display: block;
+            margin: 15px 0 7px;
+            color: #79586a;
+            font-size: 14px
+        }
+
+        .admin-box input,
+        .admin-box select,
+        .admin-box textarea {
+            width: 100%;
+            padding: 12px;
+            font: inherit;
+            color: #604354;
+            background: #fffafd;
+            border: 1px solid #f0c6da;
+            border-radius: 10px
+        }
+
+        .admin-box textarea {
+            resize: vertical
+        }
+
+        .admin-button {
+            padding: 11px 17px;
+            margin-top: 15px
+        }
+
+        .admin-button.secondary {
+            color: #79586a;
+            background: #fff0f6;
+            border-color: #f5cadd
+        }
+
+        .admin-heading,
+        .admin-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px
+        }
+
+        .admin-heading h3 {
+            margin: 0
+        }
+
+        #loginMessage {
+            color: #d96f9e;
+            font-size: 14px
+        }
+
+        #contentList {
+            display: grid;
+            gap: 12px;
+            margin-top: 15px
+        }
+
+        .admin-content-item {
+            padding: 15px;
+            background: #fffafd;
+            border: 1px solid #f5cadd;
+            border-radius: 12px;
+            overflow-wrap: anywhere
+        }
+
+        .admin-content-item h4 {
+            margin: 0 0 8px;
+            color: #d96f9e
+        }
+
+        .admin-content-item p {
+            line-height: 1.6;
+            color: #896f7e
+        }
+
+        .admin-content-item button {
+            margin-right: 8px
+        }
+
+        @media(max-width:600px) {
             header {
                 flex-direction: column;
                 padding: 20px;
-                gap: 15px;
+                gap: 15px
             }
 
             nav {
-                gap: 12px 15px;
+                gap: 12px 15px
             }
 
             nav a {
-                font-size: 13px;
+                font-size: 13px
             }
 
             h1 {
-                font-size: 40px;
+                font-size: 40px
             }
 
             .hero {
-                padding: 75px 20px;
+                padding: 75px 20px
             }
 
             .learn,
             .safety {
-                padding: 55px 20px;
+                padding: 55px 20px
             }
 
             .learn h2,
             .safety h2,
-            .quiz h2 {
-                font-size: 27px;
+            .quiz h2,
+            .admin-section h2 {
+                font-size: 27px
             }
 
             .learn-card {
                 max-width: 100%;
+                flex-basis: 100%
             }
 
             .tip {
-                padding: 16px;
+                padding: 16px
+            }
+
+            .quiz-question {
+                padding: 17px
+            }
+
+            .quiz-question h3 {
+                font-size: 16px
+            }
+
+            .admin-box {
+                padding: 20px
+            }
+
+            .module-detail-box {
+                padding: 25px 20px
             }
         }
-
-        /* Interactive Quiz */
-.quiz-container {
-    max-width: 750px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.quiz-question {
-    background: white;
-    border: 2px solid #f5d6e4;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 0 #fce8f1;
-}
-
-.quiz-question h3 {
-    color: #604354;
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-.question-number {
-    color: #d96f9e;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.quiz-option {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #f5d6e4;
-    border-radius: 12px;
-    background: #fffafd;
-    cursor: pointer;
-    line-height: 1.5;
-}
-
-.quiz-option input {
-    margin-top: 5px;
-    accent-color: #d96f9e;
-    flex-shrink: 0;
-}
-
-.quiz-option.correct-answer {
-    background: #edfff2;
-    border-color: #85c99a;
-}
-
-.quiz-option.wrong-answer {
-    background: #fff0f0;
-    border-color: #e8a0a0;
-}
-
-.answer-feedback {
-    display: none;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.answer-feedback.visible {
-    display: block;
-}
-
-.answer-feedback.correct {
-    color: #27683b;
-    background: #edfff2;
-}
-
-.answer-feedback.incorrect {
-    color: #963f4a;
-    background: #fff0f0;
-}
-
-.quiz-progress {
-    text-align: center;
-    color: #896f7e;
-    margin-bottom: 20px;
-}
-
-.quiz-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 25px;
-}
-
-.quiz-button {
-    border: 2px dashed #d96298;
-    border-radius: 12px;
-    padding: 13px 22px;
-    background: #e879ab;
-    color: white;
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.quiz-button:hover {
-    background: #d96298;
-}
-
-.quiz-result {
-    display: none;
-    margin-top: 25px;
-    padding: 24px;
-    border: 2px dashed #e879ab;
-    border-radius: 18px;
-    background: #fff0f6;
-    text-align: center;
-}
-
-.quiz-result.visible {
-    display: block;
-}
-
-.quiz-result h3 {
-    color: #d96f9e;
-}
-
-.quiz-result p {
-    color: #604354;
-    line-height: 1.7;
-}
-
-@media (max-width: 600px) {
-    .quiz-container {
-        width: 100%;
-    }
-
-    .quiz-question {
-        padding: 17px;
-    }
-
-    .quiz-question h3 {
-        font-size: 16px;
-    }
-}
-
-
-
-/* CyberSafe Admin Panel */
-.admin-section {
-    padding: 70px 20px;
-    text-align: center;
-    background-color: #fff0f6;
-}
-
-.admin-section h2 {
-    color: #604354;
-    font-size: 32px;
-    margin: 15px 0;
-}
-
-.admin-description {
-    color: #896f7e;
-    line-height: 1.7;
-    margin: 0 auto 30px;
-    max-width: 450px;
-}
-
-.admin-box {
-    max-width: 650px;
-    margin: 20px auto;
-    padding: 28px;
-    text-align: left;
-    background: white;
-    border: 2px dashed #f5cadd;
-    border-radius: 18px;
-    box-shadow: 0 4px 0 #fce8f1;
-}
-
-.admin-box h3 {
-    color: #d96f9e;
-}
-
-.admin-box label {
-    display: block;
-    margin: 15px 0 7px;
-    color: #79586a;
-    font-size: 14px;
-}
-
-.admin-box input,
-.admin-box select,
-.admin-box textarea {
-    width: 100%;
-    padding: 12px;
-    font: inherit;
-    color: #604354;
-    background: #fffafd;
-    border: 1px solid #f0c6da;
-    border-radius: 10px;
-}
-
-.admin-box textarea {
-    resize: vertical;
-}
-
-.admin-button {
-    padding: 11px 17px;
-    margin-top: 15px;
-    font: inherit;
-    font-weight: bold;
-    color: white;
-    background: #e879ab;
-    border: 2px dashed #d96298;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.admin-button:hover {
-    background: #d96298;
-}
-
-.admin-button.secondary {
-    color: #79586a;
-    background: #fff0f6;
-    border-color: #f5cadd;
-}
-
-.admin-heading,
-.admin-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.admin-heading h3 {
-    margin: 0;
-}
-
-#loginMessage {
-    color: #d96f9e;
-    font-size: 14px;
-}
-
-#contentList {
-    display: grid;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.admin-content-item {
-    padding: 15px;
-    background: #fffafd;
-    border: 1px solid #f5cadd;
-    border-radius: 12px;
-    overflow-wrap: anywhere;
-}
-
-.admin-content-item h4 {
-    margin: 0 0 8px;
-    color: #d96f9e;
-}
-
-.admin-content-item p {
-    line-height: 1.6;
-    color: #896f7e;
-}
-
-.admin-content-item button {
-    margin-right: 8px;
-}
-
-@media (max-width: 600px) {
-    .admin-box {
-        padding: 20px;
-    }
-
-    .admin-section h2 {
-        font-size: 27px;
-    }
-}
-
     </style>
 </head>
 
 <body>
-
-    <!-- Navigation bar -->
     <header>
-        <div class="logo">♡ CyberSafe</div>
-
+        <div class="logo">♡ CyberSafe ♡</div>
         <nav>
-            <a href="#home">home</a>
-            <a href="#learn">learn</a>
-            <a href="#safety">safety tips</a>
-            <a href="#quiz">quiz</a>
-            <a href="#admin">admin</a>
+            <a href="#home" data-public-nav>home</a>
+            <a href="#learn" data-public-nav>learn</a>
+            <a href="#safety" data-public-nav>safety tips</a>
+            <a href="#quiz" data-public-nav>quiz</a>
+            <a href="#admin" id="adminNavLink">admin</a>
         </nav>
     </header>
 
-    <!-- Home section -->
     <section class="hero" id="home">
-
         <p class="welcome">♡ YOUR FRIENDLY ONLINE SAFETY GUIDE ♡</p>
-
-        <h1>
-            be smart.<br>
-            stay safe <span>online !!（*＾-＾*）</span>
-        </h1>
-
-        <p class="description">
-            learn how to protect your accounts, spot online scams,
-            and stay safe while using the internet.
-        </p>
-
-        <a href="#learn" class="start-button">
-            start learning ! ♡
-        </a>
-
-    </section>
-
-    <!-- Learning section -->
-    <section class="learn" id="learn">
-
-        <p class="welcome">♡ LET'S LEARN TOGETHER ♡</p>
-
-        <h2>˖ ݁♬⋆ online safety basics .˚𝄞</h2>
-
-        <p class="learn-description">
-            here are three things every student should know
-            to stay safe on the internet!
-        </p>
-
-        <div class="card-container">
-
-            <!-- Card 1 -->
-            <div class="learn-card">
-                <div class="card-icon"><img src="ribbon.gif" width="50"></div>
-                <h3>phishing & scams</h3>
-                <p>
-                    learn how to spot fake emails, suspicious links,
-                    and messages that try to trick you. (˶˃ᆺ˂˶)
-                </p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="learn-card">
-                <div class="card-icon"><img src="milkshake.gif" width="60"></div>
-                <h3>password safety</h3>
-                <p>
-                    create strong passwords and keep your
-                    accounts safe from unwanted access.
-                </p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="learn-card">
-                <div class="card-icon"><img src="bear.gif" width="65"></div>
-                <h3>online privacy</h3>
-                <p>
-                    think before sharing personal information,
-                    photos, or your location online ! (˶>⩊<˶)
-                </p>
-            </div>
-
-            <!-- Lessons added through the admin panel -->
-            <div class="card-container" id="dynamicLessons"></div>
-
+        <h1>be smart.<br>stay safe <span>online !!（*＾-＾*）</span></h1>
+        <p class="description">learn how to protect your accounts, spot online scams, and stay safe while using the
+            internet.</p>
+        <div class="hero-buttons">
+            <a href="#learn" class="start-button">start learning ! ♡</a>
+            <a href="#quiz" class="start-button quiz-start-button">take a short quiz ✿</a>
         </div>
-
     </section>
-    <!-- End of Learning section -->
 
-    <!-- Safety Tips section -->
+    <section class="learn" id="learn">
+        <p class="welcome">♡ LEARN SOMETHING NEW ♡</p>
+        <h2>little lessons for a safer internet</h2>
+        <p class="learn-description">Explore these topics and open each module to learn more.</p>
+        <div class="card-container" id="builtInLessons">
+
+            <div class="learn-card built-in-card">
+                <div class="card-icon"><img src="ribbon.gif" width="50" alt="Pink ribbon"></div>
+                <h3>phishing & scams</h3>
+                <p>learn how to spot fake emails, suspicious links, and messages that try to trick you.</p>
+            </div>
+
+            <div class="learn-card built-in-card">
+                <div class="card-icon"><img src="milkshake.gif" width="60" alt="Milkshake"></div>
+                <h3>password safety</h3>
+                <p>create strong passwords and keep your accounts safe from unwanted access.</p>
+            </div>
+
+            <div class="learn-card built-in-card">
+                <div class="card-icon"><img src="bear.gif" width="65" alt="Bear"></div>
+                <h3>online privacy</h3>
+                <p>think before sharing personal information, photos, or your location online! (˶&gt;⩊&lt;˶)</p>
+            </div>
+        </div>
+        
+        <div class="card-container" id="dynamicLessons"></div>
+        <div class="module-detail-box" id="moduleDetailBox" hidden>
+            <button type="button" class="module-close" id="closeModule" aria-label="Close module">×</button>
+            <p class="welcome">♡ LET'S LEARN MORE ♡</p>
+            <h3 id="moduleDetailTitle"></h3>
+            <div id="moduleDetailContent"></div>
+        </div>
+    </section>
+
     <section class="safety" id="safety">
-
         <p class="welcome">♡ STAY SAFE !!! ♡</p>
-
         <h2>Little habits, big protection</h2>
-
-        <p class="safety-description">
-            Follow these simple tips to protect yourself
-            whenever you're online.
-        </p>
-
+        <p class="safety-description">Follow these simple tips to protect yourself whenever you're online.</p>
         <div class="tips-container">
-
-            <div class="tip">
-                <span class="check">✓</span>
+            <div class="tip"><span class="check">✓</span>
                 <div>
                     <h3>Use strong passwords</h3>
                     <p>Use long, unique passwords for your accounts.</p>
                 </div>
             </div>
-
-            <div class="tip">
-                <span class="check">✓</span>
+            <div class="tip"><span class="check">✓</span>
                 <div>
                     <h3>Think before you click</h3>
                     <p>Avoid suspicious links and unexpected attachments.</p>
                 </div>
             </div>
-
-            <div class="tip">
-                <span class="check">✓</span>
+            <div class="tip"><span class="check">✓</span>
                 <div>
                     <h3>Protect your personal info</h3>
                     <p>Keep your address, passwords, and private details safe.</p>
                 </div>
             </div>
-
-            <div class="tip">
-                <span class="check">✓</span>
+            <div class="tip"><span class="check">✓</span>
                 <div>
                     <h3>Enable two-factor authentication</h3>
                     <p>Add another layer of protection to your accounts.</p>
                 </div>
             </div>
-
-            <div class="tip">
-                <span class="check">✓</span>
+            <div class="tip"><span class="check">✓</span>
                 <div>
                     <h3>Keep your apps updated</h3>
                     <p>Install updates to get important security fixes.</p>
                 </div>
             </div>
-
-            <!-- Safety tips added through the admin panel -->
-            <div class="tips-container" id="dynamicTips"></div>
-
         </div>
-
+        <div class="tips-container" id="dynamicTips" style="margin-top:15px"></div>
     </section>
 
-    <!-- Quiz section placeholder -->
-<!-- Interactive Quiz section -->
-<section class="quiz" id="quiz">
-
-    <p class="welcome">♡ TEST YOUR KNOWLEDGE ♡</p>
-
-    <h2>Let's do a short quiz!</h2>
-
-    <p class="quiz-description">
-        Let's see how much you've learned about online safety!
-        Choose one answer for each question. ♡
-    </p>
-
-    <div class="quiz-container">
-
-        <p class="quiz-progress" id="quizProgress">
-            0 of 5 questions answered
-        </p>
-
-        <div id="quizQuestions"></div>
-
-        <div class="quiz-actions">
-            <button type="button" class="quiz-button" id="submitQuiz">
-                See my score ♡
-            </button>
-
-            <button type="button" class="quiz-button" id="retakeQuiz"
-                style="display: none;">
-                Try again! ↻
-            </button>
+    <section class="quiz" id="quiz">
+        <p class="welcome">♡ TEST YOUR KNOWLEDGE ♡</p>
+        <h2>let's do a short quiz ! (..◜ᴗ◝..)</h2>
+        <div class="quiz-box" id="quizIntro">
+            <div class="quiz-icon"><img src="sweets.webp" alt="Sweet treat" width="90"></div>
+            <h3>ready to test your knowledge ?</h3>
+            <p>answer 5 questions about online safety and see how much you've learned! ♡</p>
+            <button type="button" class="quiz-button" id="startQuiz">Start the Quiz ♡</button>
         </div>
-
-        <div class="quiz-result" id="quizResult"
-            role="status" aria-live="polite">
-        </div>
-
-    </div>
-
-</section>
-<!-- End of Interactive Quiz section -->
-
-
-<!-- Admin Panel -->
-<section class="admin-section" id="admin">
-    <p class="welcome">♡ CYBERSAFE ADMIN ♡</p>
-    <h2>manage educational content</h2>
-    <p class="admin-description">
-        Add, edit, and organize cybersecurity lessons and safety tips.
-    </p>
-
-    <!-- Admin Login -->
-    <div class="admin-box" id="adminLogin">
-        <h3>admin login ♡</h3>
-        <p>Sign in to manage your educational content.</p>
-
-        <form id="adminLoginForm">
-            <label for="adminPassword">Admin password</label>
-            <input
-                type="password"
-                id="adminPassword"
-                placeholder="Enter admin password"
-                required
-            >
-            <button type="submit" class="admin-button">
-                log in ♡
-            </button>
-            <p id="loginMessage" role="status"></p>
-        </form>
-    </div>
-
-    <!-- Dashboard: hidden until login -->
-    <div class="admin-box" id="adminDashboard" hidden>
-        <div class="admin-heading">
-            <h3>your content dashboard ♡</h3>
-            <button type="button" id="adminLogout"
-                class="admin-button secondary">
-                log out
-            </button>
-        </div>
-
-        <p>
-            Manage the educational content displayed on CyberSafe.
-        </p>
-
-        <form id="contentForm">
-            <input type="hidden" id="contentId">
-
-            <label for="contentType">Content type</label>
-            <select id="contentType" required>
-                <option value="lesson">Educational lesson</option>
-                <option value="tip">Safety tip</option>
-            </select>
-
-            <label for="contentTitle">Title</label>
-            <input
-                type="text"
-                id="contentTitle"
-                placeholder="e.g. Phishing Awareness"
-                required
-            >
-
-            <label for="contentDescription">Description</label>
-            <textarea
-                id="contentDescription"
-                rows="4"
-                placeholder="Write your cybersecurity lesson or tip..."
-                required
-            ></textarea>
-
-            <div class="admin-actions">
-                <button type="submit" class="admin-button" id="saveContent">
-                    save content ♡
-                </button>
-                <button type="button" class="admin-button secondary"
-                    id="cancelEdit">
-                    cancel
-                </button>
+        <div id="quizGame" hidden>
+            <p class="quiz-description">Choose one answer for each question. Good luck! ♡</p>
+            <div class="quiz-container">
+                <p class="quiz-progress" id="quizProgress">0 of 5 questions answered</p>
+                <div id="quizQuestions"></div>
+                <div class="quiz-actions">
+                    <button type="button" class="quiz-button" id="submitQuiz">See my score ♡</button>
+                    <button type="button" class="quiz-button" id="retakeQuiz" hidden>Try again! ↻</button>
+                </div>
+                <div class="quiz-result" id="quizResult" role="status" aria-live="polite"></div>
             </div>
-        </form>
+        </div>
+    </section>
 
-        <h3>saved content</h3>
-        <div id="contentList"></div>
-    </div>
-</section>
-<!-- End Admin Panel -->
+    <section class="admin-section" id="admin" hidden>
+        <p class="welcome">♡ CYBERSAFE ADMIN ♡</p>
+        <h2>manage educational content</h2>
+        <p class="admin-description">Add, edit, and organize cybersecurity lessons and safety tips.</p>
+        <button type="button" class="admin-button secondary" id="backToWebsite">♡ back to website</button>
+        <div class="admin-box" id="adminLogin">
+            <h3>admin login ♡</h3>
+            <p>Sign in to manage your educational content.</p>
+            <form id="adminLoginForm">
+                <label for="adminPassword">Admin password</label>
+                <input type="password" id="adminPassword" placeholder="Enter admin password" required>
+                <button type="submit" class="admin-button">log in ♡</button>
+                <p id="loginMessage" role="status"></p>
+            </form>
+        </div>
+        <div class="admin-box" id="adminDashboard" hidden>
+            <div class="admin-heading">
+                <h3>content dashboard ♡</h3><button type="button" id="adminLogout" class="admin-button secondary">log
+                    out</button>
+            </div>
+            <p>manage the educational content displayed on CyberSafe</p>
+            <form id="contentForm">
+                <input type="hidden" id="contentId">
+                <label for="contentType">content type</label>
+                <select id="contentType" required>
+                    <option value="lesson">educational lesson ♡</option>
+                    <option value="tip">safety tip ♡</option>
+                </select>
+                <label for="contentTitle">title</label>
+                <input type="text" id="contentTitle" placeholder="e.g. Phishing Awareness" required>
+                <label for="contentDescription">description</label>
+                <textarea id="contentDescription" rows="4" placeholder="Write a short description..."
+                    required></textarea>
+                <div id="moduleDetailsField">
+                    <label for="contentModuleDetails">Full module details (lesson only)</label>
+                    <textarea id="contentModuleDetails" rows="7" placeholder="Write the full lesson here..."></textarea>
+                </div>
+                <div class="admin-actions">
+                    <button type="submit" class="admin-button" id="saveContent">save content ♡</button>
+                    <button type="button" class="admin-button secondary" id="cancelEdit">cancel</button>
+                </div>
+            </form>
+            <h3>saved contents</h3>
+            <div id="contentList"></div>
+        </div>
+    </section>
 
-
-    <!-- Footer -->
     <footer>
-        <p>razhel arceno ; A025 </p>
+        <p>razhel arceno ; A025</p>
         <p>♡ SP2 final project ♡</p>
     </footer>
 
     <script>
-    // CyberSafe Quiz Questions
-    const quizData = [
-        {
-            question: "You receive an unexpected message asking you to click a link to verify your account. What should you do?",
-            options: [
-                "Click the link immediately",
-                "Check the message carefully and verify it through the official website",
-                "Reply with your password",
-                "Forward it to all your classmates"
-            ],
-            answer: 1,
-            explanation: "Correct! Suspicious messages may be phishing attempts. Verify the request through an official website or trusted contact."
-        },
-        {
-            question: "Which is the best way to create a strong password?",
-            options: [
-                "Use 12345678",
-                "Use your birthday",
-                "Use a long, unique password or passphrase",
-                "Use the same password for every account"
-            ],
-            answer: 2,
-            explanation: "A long, unique password or passphrase is harder to guess. Avoid reusing passwords across accounts."
-        },
-        {
-            question: "Which information should you avoid sharing publicly online?",
-            options: [
-                "Your favorite movie",
-                "A general review of a book",
-                "A public school event announcement",
-                "Your home address and account passwords"
-            ],
-            answer: 3,
-            explanation: "Your home address and passwords are sensitive information. Keep them private to reduce the risk of misuse."
-        },
-        {
-            question: "What does two-factor authentication (2FA) do?",
-            options: [
-                "Adds another verification step when signing in",
-                "Makes your password unnecessary in every situation",
-                "Automatically removes all online threats",
-                "Shares your account with two people"
-            ],
-            answer: 0,
-            explanation: "2FA adds another verification step beyond your password, helping protect your account if your password is exposed."
-        },
-        {
-            question: "Why should you update your apps and operating system?",
-            options: [
-                "Updates always make every app run faster",
-                "Updates can fix security vulnerabilities",
-                "Updates make passwords public",
-                "Updates remove the need for antivirus protection"
-            ],
-            answer: 1,
-            explanation: "Updates often include security fixes that help protect your device against known vulnerabilities."
-        }
-    ];
+        "use strict";
 
-    const questionsContainer = document.getElementById("quizQuestions");
-    const progressText = document.getElementById("quizProgress");
-    const submitButton = document.getElementById("submitQuiz");
-    const retakeButton = document.getElementById("retakeQuiz");
-    const resultBox = document.getElementById("quizResult");
+        // Quiz
+        const quizData = [
+            { question: "You receive an unexpected message asking you to click a link to verify your account. What should you do?", options: ["Click the link immediately", "Check the message carefully and verify it through the official website", "Reply with your password", "Forward it to all your classmates"], answer: 1, explanation: "Suspicious messages may be phishing attempts. Verify the request through an official website or trusted contact." },
+            { question: "Which is the best way to create a strong password?", options: ["Use 12345678", "Use your birthday", "Use a long, unique password or passphrase", "Use the same password for every account"], answer: 2, explanation: "A long, unique password or passphrase is harder to guess. Avoid reusing passwords across accounts." },
+            { question: "Which information should you avoid sharing publicly online?", options: ["Your favorite movie", "A general review of a book", "A public school event announcement", "Your home address and account passwords"], answer: 3, explanation: "Your home address and passwords are sensitive information. Keep them private." },
+            { question: "What does two-factor authentication (2FA) do?", options: ["Adds another verification step when signing in", "Makes your password unnecessary in every situation", "Automatically removes all online threats", "Shares your account with two people"], answer: 0, explanation: "2FA adds another verification step beyond your password." },
+            { question: "Why should you update your apps and operating system?", options: ["Updates always make every app run faster", "Updates can fix security vulnerabilities", "Updates make passwords public", "Updates remove the need for antivirus protection"], answer: 1, explanation: "Updates often include security fixes that help protect your device." }
+        ];
+        const questionsContainer = document.getElementById("quizQuestions");
+        const progressText = document.getElementById("quizProgress");
+        const submitButton = document.getElementById("submitQuiz");
+        const retakeButton = document.getElementById("retakeQuiz");
+        const resultBox = document.getElementById("quizResult");
+        const quizIntro = document.getElementById("quizIntro");
+        const quizGame = document.getElementById("quizGame");
+        let answeredQuestions = new Set(), score = 0, quizFinished = false;
 
-    let answeredQuestions = new Set();
-    let score = 0;
-    let quizFinished = false;
-
-    // Display all five questions
-    function loadQuiz() {
-        questionsContainer.innerHTML = "";
-        answeredQuestions = new Set();
-        score = 0;
-        quizFinished = false;
-
-        resultBox.innerHTML = "";
-        resultBox.classList.remove("visible");
-
-        submitButton.style.display = "inline-block";
-        retakeButton.style.display = "none";
-
-        progressText.textContent =
-            "0 of " + quizData.length + " questions answered";
-
-        quizData.forEach(function(item, index) {
-            const card = document.createElement("div");
-            card.className = "quiz-question";
-
-            const number = document.createElement("p");
-            number.className = "question-number";
-            number.textContent =
-                "QUESTION " + (index + 1) + " OF " + quizData.length;
-
-            const heading = document.createElement("h3");
-            heading.textContent = item.question;
-
-            const optionsContainer = document.createElement("div");
-
-            item.options.forEach(function(option, optionIndex) {
-                const label = document.createElement("label");
-                label.className = "quiz-option";
-
-                const radio = document.createElement("input");
-                radio.type = "radio";
-                radio.name = "question-" + index;
-                radio.value = optionIndex;
-
-                const optionText = document.createElement("span");
-                optionText.textContent = option;
-
-                radio.addEventListener("change", function() {
-                    checkAnswer(index, optionIndex, card);
+        function loadQuiz() {
+            questionsContainer.replaceChildren(); answeredQuestions = new Set(); score = 0; quizFinished = false;
+            resultBox.replaceChildren(); resultBox.classList.remove("visible");
+            submitButton.hidden = false; retakeButton.hidden = true;
+            progressText.textContent = "0 of " + quizData.length + " questions answered";
+            quizData.forEach((item, index) => {
+                const card = document.createElement("div"); card.className = "quiz-question";
+                const number = document.createElement("p"); number.className = "question-number"; number.textContent = "QUESTION " + (index + 1) + " OF " + quizData.length;
+                const heading = document.createElement("h3"); heading.textContent = item.question;
+                const optionsContainer = document.createElement("div");
+                item.options.forEach((option, optionIndex) => {
+                    const label = document.createElement("label"); label.className = "quiz-option";
+                    const radio = document.createElement("input"); radio.type = "radio"; radio.name = "question-" + index; radio.value = optionIndex;
+                    const text = document.createElement("span"); text.textContent = option;
+                    radio.addEventListener("change", () => checkAnswer(index, optionIndex, card));
+                    label.append(radio, text); optionsContainer.append(label);
                 });
-
-                label.appendChild(radio);
-                label.appendChild(optionText);
-                optionsContainer.appendChild(label);
+                const feedback = document.createElement("p"); feedback.className = "answer-feedback";
+                card.append(number, heading, optionsContainer, feedback); questionsContainer.append(card);
             });
-
-            const feedback = document.createElement("p");
-            feedback.className = "answer-feedback";
-            feedback.id = "feedback-" + index;
-
-            card.appendChild(number);
-            card.appendChild(heading);
-            card.appendChild(optionsContainer);
-            card.appendChild(feedback);
-
-            questionsContainer.appendChild(card);
+        }
+        function checkAnswer(questionIndex, selectedIndex, card) {
+            if (quizFinished || answeredQuestions.has(questionIndex)) return;
+            const item = quizData[questionIndex], correct = selectedIndex === item.answer;
+            const feedback = card.querySelector(".answer-feedback"), options = card.querySelectorAll(".quiz-option");
+            answeredQuestions.add(questionIndex); if (correct) score++;
+            card.querySelectorAll("input[type=radio]").forEach(r => r.disabled = true);
+            options[item.answer].classList.add("correct-answer"); if (!correct) options[selectedIndex].classList.add("wrong-answer");
+            feedback.textContent = (correct ? "✓ Correct! " : "♡ Not quite! ") + item.explanation;
+            feedback.classList.add("visible", correct ? "correct" : "incorrect");
+            progressText.textContent = answeredQuestions.size + " of " + quizData.length + " questions answered";
+        }
+        submitButton.addEventListener("click", () => {
+            if (quizFinished) return;
+            if (answeredQuestions.size < quizData.length) {
+                resultBox.textContent = "Please answer the remaining " + (quizData.length - answeredQuestions.size) + " question(s).";
+                resultBox.classList.add("visible"); return;
+            }
+            quizFinished = true; const percent = Math.round(score / quizData.length * 100);
+            const h = document.createElement("h3"); h.textContent = "Your result: " + score + "/" + quizData.length;
+            const p = document.createElement("p"); p.textContent = "Score: " + percent + "%";
+            const msg = document.createElement("p"); msg.textContent = score === 5 ? "Perfect score! Amazing job! ♡" : score >= 3 ? "Great job! Keep practicing your online safety habits. ♡" : "Good effort! Review the tips and try again. ♡";
+            resultBox.replaceChildren(h, p, msg); resultBox.classList.add("visible"); submitButton.hidden = true; retakeButton.hidden = false;
         });
-    }
-
-    // Check each answer immediately
-    function checkAnswer(questionIndex, selectedIndex, card) {
-        if (quizFinished || answeredQuestions.has(questionIndex)) {
-            return;
-        }
-
-        const item = quizData[questionIndex];
-        const isCorrect = selectedIndex === item.answer;
-        const feedback = card.querySelector(".answer-feedback");
-        const options = card.querySelectorAll(".quiz-option");
-        const radios = card.querySelectorAll("input[type='radio']");
-
-        answeredQuestions.add(questionIndex);
-
-        if (isCorrect) {
-            score++;
-        }
-
-        // Lock this question after the first answer
-        radios.forEach(function(radio) {
-            radio.disabled = true;
-        });
-
-        // Highlight the correct answer
-        options[item.answer].classList.add("correct-answer");
-
-        if (!isCorrect) {
-            options[selectedIndex].classList.add("wrong-answer");
-        }
-
-        feedback.textContent =
-            (isCorrect ? "✓ Correct! " : "♡ not quite! ") +
-            item.explanation;
-
-        feedback.classList.add("visible");
-        feedback.classList.add(isCorrect ? "correct" : "incorrect");
-
-        progressText.textContent =
-            answeredQuestions.size + " of " + quizData.length +
-            " questions answered";
-    }
-
-    // Show final score after the student answers all questions
-    submitButton.addEventListener("click", function() {
-        if (quizFinished) {
-            return;
-        }
-
-        if (answeredQuestions.size < quizData.length) {
-            const remaining =
-                quizData.length - answeredQuestions.size;
-
-            resultBox.innerHTML = "";
-
-            const message = document.createElement("p");
-            message.textContent =
-                "Almost there! Please answer the remaining " +
-                remaining + (remaining === 1 ? " question." : " questions.");
-
-            resultBox.appendChild(message);
-            resultBox.classList.add("visible");
-            resultBox.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-            return;
-        }
-
-        quizFinished = true;
-
-        const percentage = Math.round(
-            (score / quizData.length) * 100
-        );
-
-        let message;
-
-        if (score === quizData.length) {
-            message = "perfect score! you're such a good boy / girl ♡";
-        } else if (score >= 3) {
-            message = "great job ! keep practicing your online safety habits & you will receive head pats ♡";
-        } else {
-            message = "good effort ! review the tips and try again if u want to be a good kitty. ♡";
-        }
-
-        resultBox.innerHTML = "";
-
-        const heading = document.createElement("h3");
-        heading.textContent = "Your result: " + score + "/" + quizData.length;
-
-        const percentageText = document.createElement("p");
-        percentageText.textContent = "Score: " + percentage + "%";
-
-        const messageText = document.createElement("p");
-        messageText.textContent = message;
-
-        resultBox.appendChild(heading);
-        resultBox.appendChild(percentageText);
-        resultBox.appendChild(messageText);
-        resultBox.classList.add("visible");
-
-        submitButton.style.display = "none";
-        retakeButton.style.display = "inline-block";
-
-        resultBox.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-    });
-
-    // Reset everything for another attempt
-    retakeButton.addEventListener("click", function() {
+        retakeButton.addEventListener("click", loadQuiz);
         loadQuiz();
+        document.getElementById("startQuiz").addEventListener("click", () => { quizIntro.hidden = true; quizGame.hidden = false; document.getElementById("quiz").scrollIntoView({ behavior: "smooth", block: "start" }); });
 
-        document.getElementById("quiz").scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+        // Admin content
+        const DEMO_ADMIN_PASSWORD = "cybersafe123";
+        const adminLoginForm = document.getElementById("adminLoginForm");
+        const adminPassword = document.getElementById("adminPassword");
+        const adminLogin = document.getElementById("adminLogin");
+        const adminDashboard = document.getElementById("adminDashboard");
+        const loginMessage = document.getElementById("loginMessage");
+        const contentForm = document.getElementById("contentForm");
+        const contentId = document.getElementById("contentId");
+        const contentType = document.getElementById("contentType");
+        const contentTitle = document.getElementById("contentTitle");
+        const contentDescription = document.getElementById("contentDescription");
+        const contentModuleDetails = document.getElementById("contentModuleDetails");
+        const moduleDetailsField = document.getElementById("moduleDetailsField");
+        const contentList = document.getElementById("contentList");
+        const dynamicLessons = document.getElementById("dynamicLessons");
+        const dynamicTips = document.getElementById("dynamicTips");
+        const moduleBox = document.getElementById("moduleDetailBox");
+        const moduleTitle = document.getElementById("moduleDetailTitle");
+        const moduleContent = document.getElementById("moduleDetailContent");
+
+        function updateModuleDetailsField() {
+            const isLesson = contentType.value === "lesson";
+            moduleDetailsField.hidden = !isLesson;
+            if (!isLesson) contentModuleDetails.value = "";
+        }
+        contentType.addEventListener("change", updateModuleDetailsField);
+        function getAdminContent() {
+            try { const saved = JSON.parse(localStorage.getItem("cybersafeContent") || "[]"); return Array.isArray(saved) ? saved : []; }
+            catch (error) { return []; }
+        }
+        let adminContent = getAdminContent();
+        function saveAdminContent() {
+            try { localStorage.setItem("cybersafeContent", JSON.stringify(adminContent)); return true; }
+            catch (error) { loginMessage.textContent = "Unable to save. Please check browser storage."; return false; }
+        }
+        const builtInModules = {
+            "phishing & scams": { title: "♡ Phishing & Scams", content: `<h4>What is phishing?</h4><p>Phishing is an online scam where someone pretends to be a trusted person or organization to steal information.</p><h4>Warning signs</h4><ul><li>Unexpected messages asking for passwords.</li><li>Suspicious links or unfamiliar websites.</li><li>Messages pressuring you to act immediately.</li></ul><h4>How to stay safe</h4><p>Don't click suspicious links. Verify messages through official websites, and never share your password or verification codes.</p>` },
+            "password safety": { title: "♡ Password Safety", content: `<h4>Why are strong passwords important?</h4><p>Strong passwords help prevent unauthorized access to your accounts.</p><h4>Build better password habits</h4><ul><li>Use long, unique passwords or passphrases.</li><li>Avoid birthdays and easy-to-guess information.</li><li>Never reuse passwords across important accounts.</li><li>Use a password manager and enable two-factor authentication when available.</li></ul><h4>Remember</h4><p>Never share your passwords or verification codes.</p>` },
+            "online privacy": { title: "♡ Online Privacy", content: `<h4>What is online privacy?</h4><p>Online privacy means being careful about the personal information you share on the internet.</p><h4>Information to protect</h4><ul><li>Your home address and phone number.</li><li>Passwords and verification codes.</li><li>Your live location and private documents.</li></ul><h4>How to stay safe</h4><p>Review your privacy settings, think before posting, and ask permission before sharing someone else's photos or personal information.</p>` }
+        };
+        function openModule(title, details, isBuiltIn = false) {
+            moduleTitle.textContent = title;
+            if (isBuiltIn) { moduleContent.innerHTML = details; }
+            else { const p = document.createElement("p"); p.textContent = details || "No full module details have been added yet."; moduleContent.replaceChildren(p); }
+            moduleBox.hidden = false; moduleBox.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        document.querySelectorAll("#builtInLessons .built-in-card").forEach(card => {
+            const title = card.querySelector("h3").textContent.trim().toLowerCase();
+            const button = document.createElement("button"); button.type = "button"; button.className = "module-view-link"; button.textContent = "view module ♡";
+            button.addEventListener("click", () => { const details = builtInModules[title]; if (details) openModule(details.title, details.content, true); });
+            card.append(button);
         });
-    });
+        document.getElementById("closeModule").addEventListener("click", () => { moduleBox.hidden = true; });
 
-    // Start the quiz when the page loads
-    loadQuiz();
-
-
-
-    
-    // ===== CYBERSAFE ADMIN PANEL =====
-
-    const DEMO_ADMIN_PASSWORD = "cybersafe123";
-
-    const adminLoginForm = document.getElementById("adminLoginForm");
-    const adminPassword = document.getElementById("adminPassword");
-    const adminLogin = document.getElementById("adminLogin");
-    const adminDashboard = document.getElementById("adminDashboard");
-    const loginMessage = document.getElementById("loginMessage");
-    const adminLogout = document.getElementById("adminLogout");
-
-    const contentForm = document.getElementById("contentForm");
-    const contentId = document.getElementById("contentId");
-    const contentType = document.getElementById("contentType");
-    const contentTitle = document.getElementById("contentTitle");
-    const contentDescription = document.getElementById("contentDescription");
-    const contentList = document.getElementById("contentList");
-    const cancelEdit = document.getElementById("cancelEdit");
-
-    // Load saved content from this browser
-    function getAdminContent() {
-        try {
-            const saved = JSON.parse(
-                localStorage.getItem("cybersafeContent") || "[]"
-            );
-            return Array.isArray(saved) ? saved : [];
-        } catch (error) {
-            return [];
-        }
-    }
-
-    let adminContent = getAdminContent();
-
-    function saveAdminContent() {
-        try {
-            localStorage.setItem(
-                "cybersafeContent",
-                JSON.stringify(adminContent)
-            );
-            return true;
-        } catch (error) {
-            loginMessage.textContent =
-                "Unable to save. Please check your browser storage.";
-            return false;
-        }
-    }
-
-    // Admin login
-    adminLoginForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        if (adminPassword.value === DEMO_ADMIN_PASSWORD) {
-            adminLogin.hidden = true;
-            adminDashboard.hidden = false;
-            loginMessage.textContent = "";
-            adminPassword.value = "";
-            renderAdminContent();
-        } else {
-            loginMessage.textContent =
-                "Oops! Incorrect password. Please try again. ♡";
-            adminPassword.value = "";
-            adminPassword.focus();
-        }
-    });
-
-    // Admin logout
-    adminLogout.addEventListener("click", function() {
-        adminDashboard.hidden = true;
-        adminLogin.hidden = false;
-        contentForm.reset();
-        contentId.value = "";
-        loginMessage.textContent = "";
-    });
-
-    // Display saved lessons and tips
-
-function renderAdminContent() {
-    contentList.replaceChildren();
-
-    // Update the student-facing website too
-    renderPublicContent();
-
-    if (adminContent.length === 0) {
-        const emptyMessage = document.createElement("p");
-        emptyMessage.textContent =
-            "No saved content yet. Add your first lesson or tip! ♡";
-        contentList.appendChild(emptyMessage);
-        return;
-    }
-
-    adminContent.forEach(function(item) {
-        const card = document.createElement("div");
-        card.className = "admin-content-item";
-
-        const heading = document.createElement("h4");
-        heading.textContent =
-            (item.type === "lesson" ? "🩷 Lesson: " : "🍥 Safety tip: ") +
-            item.title;
-
-        const description = document.createElement("p");
-        description.textContent = item.description;
-
-        const editButton = document.createElement("button");
-        editButton.type = "button";
-        editButton.className = "admin-button secondary";
-        editButton.textContent = "edit ♡";
-
-        editButton.addEventListener("click", function() {
-            contentId.value = item.id;
-            contentType.value = item.type;
-            contentTitle.value = item.title;
-            contentDescription.value = item.description;
-            contentForm.scrollIntoView({ behavior: "smooth" });
-        });
-
-        const deleteButton = document.createElement("button");
-        deleteButton.type = "button";
-        deleteButton.className = "admin-button secondary";
-        deleteButton.textContent = "delete";
-
-        deleteButton.addEventListener("click", function() {
-            if (confirm("Delete this content?")) {
-                const previousContent = adminContent;
-
-                adminContent = adminContent.filter(function(entry) {
-                    return entry.id !== item.id;
-                });
-
-                if (saveAdminContent()) {
-                    renderAdminContent();
-                    contentForm.reset();
-                    contentId.value = "";
-                } else {
-                    adminContent = previousContent;
+        function renderPublicContent() {
+            dynamicLessons.replaceChildren(); dynamicTips.replaceChildren();
+            adminContent.forEach(item => {
+                if (item.type === "lesson") {
+                    const card = document.createElement("div"); card.className = "learn-card";
+                    const icon = document.createElement("div"); icon.className = "card-icon"; icon.textContent = "🍰";
+                    const heading = document.createElement("h3"); heading.textContent = item.title;
+                    const desc = document.createElement("p"); desc.textContent = item.description;
+                    const view = document.createElement("button"); view.type = "button"; view.className = "module-view-link"; view.textContent = "view module ♡";
+                    view.addEventListener("click", () => openModule("♡ " + item.title, item.moduleDetails || "No full module details have been added yet."));
+                    card.append(icon, heading, desc, view); dynamicLessons.append(card);
+                } else if (item.type === "tip") {
+                    const card = document.createElement("div"); card.className = "tip";
+                    const check = document.createElement("span"); check.className = "check"; check.textContent = "✓";
+                    const body = document.createElement("div"); const heading = document.createElement("h3"); heading.textContent = item.title;
+                    const desc = document.createElement("p"); desc.textContent = item.description; body.append(heading, desc); card.append(check, body); dynamicTips.append(card);
                 }
-            }
-        });
-
-        card.appendChild(heading);
-        card.appendChild(description);
-        card.appendChild(editButton);
-        card.appendChild(deleteButton);
-        contentList.appendChild(card);
-    });
-}
-
-// Display admin-added content on the public website
-function renderPublicContent() {
-    const lessonsContainer = document.getElementById("dynamicLessons");
-    const tipsContainer = document.getElementById("dynamicTips");
-
-    if (!lessonsContainer || !tipsContainer) return;
-
-    lessonsContainer.replaceChildren();
-    tipsContainer.replaceChildren();
-
-    adminContent.forEach(function(item) {
-        if (item.type === "lesson") {
-            const card = document.createElement("div");
-            card.className = "learn-card";
-
-            const icon = document.createElement("div");
-            icon.className = "card-icon";
-            icon.textContent = "🍰";
-
-            const heading = document.createElement("h3");
-            heading.textContent = item.title;
-
-            const description = document.createElement("p");
-            description.textContent = item.description;
-
-            card.append(icon, heading, description);
-            lessonsContainer.appendChild(card);
-        }
-
-        if (item.type === "tip") {
-            const card = document.createElement("div");
-            card.className = "tip";
-
-            const check = document.createElement("span");
-            check.className = "check";
-            check.textContent = "✓";
-
-            const content = document.createElement("div");
-
-            const heading = document.createElement("h3");
-            heading.textContent = item.title;
-
-            const description = document.createElement("p");
-            description.textContent = item.description;
-
-            content.append(heading, description);
-            card.append(check, content);
-            tipsContainer.appendChild(card);
-        }
-    });
-}
-
-
-    // Add new content or update existing content
-    contentForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const title = contentTitle.value.trim();
-        const description = contentDescription.value.trim();
-
-        if (!title || !description) {
-            alert("Please enter both a title and description.");
-            return;
-        }
-
-        const existingId = contentId.value;
-
-        if (existingId) {
-            const item = adminContent.find(
-                function(entry) {
-                    return entry.id === existingId;
-                }
-            );
-
-            if (item) {
-                item.type = contentType.value;
-                item.title = title;
-                item.description = description;
-            }
-        } else {
-            adminContent.push({
-                id: Date.now().toString() + Math.random().toString(16).slice(2),
-                type: contentType.value,
-                title: title,
-                description: description
             });
         }
-
-        if (saveAdminContent()) {
-            renderAdminContent();
-            contentForm.reset();
-            contentId.value = "";
-            alert("Content saved successfully! ♡");
+        function renderAdminContent() {
+            contentList.replaceChildren(); renderPublicContent();
+            if (!adminContent.length) { const p = document.createElement("p"); p.textContent = "No saved content yet. Add your first lesson or tip! ♡"; contentList.append(p); return; }
+            adminContent.forEach(item => {
+                const card = document.createElement("div"); card.className = "admin-content-item";
+                const h = document.createElement("h4"); h.textContent = (item.type === "lesson" ? "🩷 Lesson: " : "🍥 Safety tip: ") + item.title;
+                const p = document.createElement("p"); p.textContent = item.description;
+                const edit = document.createElement("button"); edit.type = "button"; edit.className = "admin-button secondary"; edit.textContent = "edit ♡";
+                edit.addEventListener("click", () => {
+                    contentId.value = String(item.id); contentType.value = item.type; contentTitle.value = item.title; contentDescription.value = item.description;
+                    contentModuleDetails.value = item.moduleDetails || ""; updateModuleDetailsField(); contentForm.scrollIntoView({ behavior: "smooth", block: "center" });
+                });
+                const del = document.createElement("button"); del.type = "button"; del.className = "admin-button secondary"; del.textContent = "delete";
+                del.addEventListener("click", () => {
+                    if (!confirm("Delete this content?")) return;
+                    const previous = adminContent; adminContent = adminContent.filter(entry => entry.id !== item.id);
+                    if (saveAdminContent()) { renderAdminContent(); contentForm.reset(); contentId.value = ""; updateModuleDetailsField(); }
+                    else adminContent = previous;
+                });
+                card.append(h, p, edit, del); contentList.append(card);
+            });
         }
-    });
+        adminLoginForm.addEventListener("submit", event => {
+            event.preventDefault();
+            if (adminPassword.value === DEMO_ADMIN_PASSWORD) { adminLogin.hidden = true; adminDashboard.hidden = false; loginMessage.textContent = ""; adminPassword.value = ""; renderAdminContent(); }
+            else { loginMessage.textContent = "Oops! Incorrect password. Please try again. ♡"; adminPassword.value = ""; adminPassword.focus(); }
+        });
+        document.getElementById("adminLogout").addEventListener("click", () => {
+            adminDashboard.hidden = true; adminLogin.hidden = false; contentForm.reset(); contentId.value = ""; updateModuleDetailsField(); loginMessage.textContent = "";
+        });
+        contentForm.addEventListener("submit", event => {
+            event.preventDefault();
+            const title = contentTitle.value.trim(), description = contentDescription.value.trim();
+            const moduleDetailsText = contentModuleDetails.value.trim(), type = contentType.value;
+            if (!title || !description) { alert("Please enter both a title and description."); return; }
+            const existingId = contentId.value;
+            if (existingId) {
+                const item = adminContent.find(entry => String(entry.id) === existingId);
+                if (item) { item.type = type; item.title = title; item.description = description; item.moduleDetails = type === "lesson" ? moduleDetailsText : ""; }
+            } else {
+                adminContent.push({ id: Date.now().toString() + Math.random().toString(16).slice(2), type, title, description, moduleDetails: type === "lesson" ? moduleDetailsText : "" });
+            }
+            if (saveAdminContent()) { renderAdminContent(); contentForm.reset(); contentId.value = ""; updateModuleDetailsField(); alert("Content saved successfully! ♡"); }
+        });
+        document.getElementById("cancelEdit").addEventListener("click", () => { contentForm.reset(); contentId.value = ""; updateModuleDetailsField(); });
+        updateModuleDetailsField(); renderAdminContent();
 
-    // Clear the form
-    cancelEdit.addEventListener("click", function() {
-        contentForm.reset();
-        contentId.value = "";
-    });
-
-    // Show saved content when the page loads
-    renderAdminContent();
-
-</script>
-
+        // Navigation: the public content is wrapped in these sections, so admin view can hide them cleanly.
+        const adminSection = document.getElementById("admin");
+        const publicSections = [document.getElementById("home"), document.getElementById("learn"), document.getElementById("safety"), document.getElementById("quiz"), document.querySelector("footer")];
+        function showWebsite() { adminSection.hidden = true; publicSections.forEach(section => section.hidden = false); window.scrollTo({ top: 0, behavior: "smooth" }); }
+        function showAdmin() { publicSections.forEach(section => section.hidden = true); adminSection.hidden = false; window.scrollTo({ top: 0, behavior: "smooth" }); }
+        document.getElementById("adminNavLink").addEventListener("click", event => { event.preventDefault(); showAdmin(); });
+        document.getElementById("backToWebsite").addEventListener("click", showWebsite);
+        document.querySelectorAll("[data-public-nav]").forEach(link => link.addEventListener("click", () => showWebsite()));
+    </script>
 </body>
+
 </html>
